@@ -1,0 +1,625 @@
+/* prevent Flickering for phonegap /android
+ * ref: http://stackoverflow.com/questions/5953753/flickering-when-navigating-between-pages
+  
+ */
+
+.ui-page {
+    -webkit-backface-visibility: hidden;
+} 
+
+
+
+/* ------------------------------------------------------------------------------------ */
+
+.kural-header{
+    text-align: center;
+    padding: 0.75em 0;
+    margin-top: 0.5%; 
+    background-color: #f7f7f7;
+    
+    color: #404040;
+    border-color: #dddddd;
+    color: #333333;
+    text-shadow: 0 1px 0 #f3f3f3;
+    line-height: 1em;
+    text-shadow: 0 0 0 #eeeeee;
+    -webkit-border-top-left-radius: inherit;
+    border-top-left-radius: inherit;
+    -webkit-border-top-right-radius: inherit;
+    border-top-right-radius: inherit;
+    
+}
+
+    .kural-header .star{
+        margin: 0 1em;
+    }
+    
+/* make the kural header in adhikaram view to align left */
+
+#adhikaram-view .kural-header{
+    text-align: left;
+}
+
+/* actual kural body */
+
+.kural{
+    color: #444444;
+    font-weight: normal;
+    line-height: 1.85em;
+    margin: 0.75em 0;
+}
+
+.kural.suggestion{
+    font-size: 1.2em;
+    line-height: 1.2em;
+}
+
+
+
+/* ------------------------------------------------------------------------------------ */
+
+/*
+ * MEERA Tamil font for Kural Suvadi
+ *
+ * ref: 
+ */
+ 
+@font-face {
+  font-family: 'Meera Tamil';
+  src: url('fonts/MeeraTamil.ttf') format('truetype'),
+       url('fonts/MeeraTamil.woff') format('woff');
+}
+
+/* specific class for Meera Font. Can be used if necessary */
+.meera *{
+    font-family: 'Meera Tamil';
+}
+
+/* for now, apply this font for everything */
+[data-role="page"] *{
+    font-family: 'Meera Tamil';
+}
+
+/*
+* make background color as white
+*/
+
+html, body{
+    background: #ffffff;
+}
+
+/*
+* remove the smear effect surrounding the icons
+*/
+
+.ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head + body .ui-btn.ui-btn-a, .ui-page-theme-a .ui-btn:visited, html .ui-bar-a .ui-btn:visited, html .ui-body-a .ui-btn:visited, html body .ui-group-theme-a .ui-btn:visited, html head + body .ui-btn.ui-btn-a:visited{
+    border-color: none;
+}
+
+/*
+* Aim: Make the panel as fixed:
+*
+*/
+
+.ui-panel.ui-panel-open {
+    position:fixed;
+}
+.ui-panel-inner {
+    position: absolute;
+    top: 1px;
+    left: 0;
+    right: 0;
+    bottom: 0px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* START: Kural Dialog Styles */
+
+/* Manage the top and bottom space of the Dialog Page */
+
+#kural-popup{
+    padding: 0;
+}
+
+/* Make the dialog page as wide as possible to display the 'Kural'
+ * in smaller displays
+ */
+
+.ui-dialog-contain{    
+    width: auto;
+    max-width: 90%;
+    height: auto;
+}
+
+    /* change dialog header and footer style */
+    .ui-dialog-contain .ui-header, .ui-dialog-contain .ui-footer{
+        background-color: #f7f7f7;
+        border: #dddddd;
+        color: #333333;
+        border-style: solid;
+        border-width: 1px;
+    }
+
+/* style the 'kural' popup header and footer elements */
+#kural_porul {
+    font-size: 0.7em;
+}
+
+.kural_popup_nav{
+    text-align: center;
+    padding: 0.75em 0;
+    margin-top: 0.5%; 
+    background-color: #f7f7f7;
+}
+
+#kural_popup_title .star{
+    margin: 0 1em;
+}
+
+/* style the kural popup footer */
+
+/* END: Kural Dialog Styles */
+
+
+/* udhavi section */
+
+/* div that holds each row of the udhavi */
+.ulleedu_holder{
+    margin: 0.5em 0;
+    padding: 0.5em 0;
+    border-bottom: thin solid #f7f7f7;
+}
+
+/* adjust the padding for our udhavi list */
+.udhavi-list .ui-li-static {
+    padding: 0.3em;
+    border-style: none;
+    overflow: auto;
+    text-overflow: none;
+}
+
+/* keyboard class for tamil ullidu udhavi keyboard */
+.kbd {
+    background: none repeat scroll 0 0 #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px #fff inset;
+    color: #333;
+    display: inline-block;
+    font-size: 0.65em;
+    line-height: 1.4;
+    margin: 0.1em;
+    margin: 0;
+    padding: 0.3em 0.5em;
+    text-shadow: 0 1px 0 #fff;
+    white-space: nowrap;
+}
+
+/* style for actual tamil and english fonts in ulleedu udhavi keyboard */
+.ukey{
+    display: inline-block;
+    font-size: 0.8em;
+    margin: 0;
+    margin: 0.1em 0;
+    padding: 0.3em 0.4em;
+    width: 2.2em;
+    height: 1.5em;
+    line-height: 1.4;
+    border: thin solid #f7f7f7;
+    text-align: center;
+}
+
+    .ukey.hyphen{
+        border: none;
+        width: 0.1em;
+        height: 1.5em;
+    }
+
+/* flip switch classes */
+
+
+.ui-flipswitch.ui-shadow-inset.ui-bar-inherit.ui-corner-all {
+    background-color: #e9e9e9;
+    border-color: #ddd;
+    font-weight: normal;
+}
+
+.ui-flipswitch.ui-shadow-inset.ui-bar-inherit.ui-corner-all.ui-flipswitch-active {
+    background-color: #6f1d1b;
+}
+
+.ui-flipswitch .ui-btn.ui-flipswitch-on {
+    color: white;
+    font-size: 1em;
+    text-indent: -3em;
+}
+
+.ui-flipswitch .ui-flipswitch-off {
+    background-color: #e9e9e9;
+    border-color: #ddd;
+    color: #333;
+    font-size: 0.95em;
+    font-weight: 700;
+    text-shadow: 0 1px 0 #eee;
+    width: 3.75em;
+    text-indent: 0;
+}
+
+/* ----------------------------------------------------------- */
+/* START: utility classes */
+/* ----------------------------------------------------------- */
+
+.text-center{
+    text-align: center;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.info{
+    border: thin solid #f7f7f7;
+    background: #f7f7f7;
+    text-align: center;
+    border-radius: 0.4em;
+    margin: 0.75em 0.2em;
+    padding: 0.5em;
+    font-size: 0.75em;
+    line-height: 1.5;
+}
+
+/* define the legible horizontal line */
+
+hr{
+    color: #666666;
+    margin: 1em 0;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+    hr.light{
+        color: #f7f7f7;
+        border-top: thin solid #f7f7f7;
+        border-bottom: thin solid #f7f7f7;
+    }
+
+.suvadi-row {
+    border: thin solid #dddddd;
+    padding: 0.5em;
+    cursor: pointer;
+}
+
+/* ----------------------------------------------------------- */
+/* END: utility classes */
+/* ----------------------------------------------------------- */
+
+/*
+* AIM: starred and unstarred classes
+*/
+
+/* star is normally unstarred */
+
+.star{
+    display: inline-block;
+    float: right;
+    background: url('images/star-small-gold1.png') no-repeat -10px -13px;
+	width: 24px;
+	height: 23px;
+	vertical-align: middle;
+}
+
+.starred{
+    display: inline-block;
+    float: right;
+    background: url('images/star-small-gold1.png') no-repeat -43px -14px;
+	width: 23px;
+	height: 23px;
+}
+
+/* START: adhikaram styles */
+
+.adhikaram-row :hover{
+    background-color: #f5f5f5;
+}
+
+/* margin for adhikaram rows */
+.adhikaram-row{
+    border: none;
+    cursor: pointer;
+}
+
+    .adhikaram-row:active{
+        box-shadow: 0 0 0.65em #333333;
+    }
+
+/* adhikaram title style */
+
+.adhikaram_title_header{
+    text-align: center;
+}
+
+.adhikaram_title{
+    display: inline-block;
+    border-radius: 0.33em;
+    margin: 0.7em;
+    color: #6f1d1b;
+    color: white;
+    background: #FFCC00;
+    background: #f6f6f6;
+    background: #6f1d1b;
+    
+    border: thin solid #6f1d1b;
+    padding: 0.4em 0.7em;
+    line-height: 1.5em;
+    font-size: 1.1em;
+    font-weight: bold;
+    vertical-align: baseline;
+    white-space: nowrap;
+}
+
+/* END: adhikaram styles */
+
+/* viruppam div style */
+
+.viruppam{
+    margin: 1em 0;
+    cursor: pointer;
+}
+
+    .viruppam:active {
+        box-shadow: 0 0 0.65em #333333;
+    }
+
+
+.kural-number{
+    display: inline-block;
+    border-radius: 0.33em;
+    margin: 0 0.7em;
+    color: white;
+    
+    background-color: #6f1d1b;
+    
+    padding: 0.3em 0.5em 0.1em;
+    line-height: 1.5em;
+    font-size: 0.8em;
+    vertical-align: baseline;
+    white-space: nowrap;
+}
+
+/* style viruppam body */
+
+.viruppam .ui-body {
+    border-top-width: 0;
+    -webkit-border-bottom-left-radius: inherit;
+    border-bottom-left-radius: inherit;
+    -webkit-border-bottom-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+}
+
+/* Aim: Matching ime title with the theme */
+.ime-list-title, .ime-lang-title{
+    color: #6f1d1b;
+    border-bottom-color: #6f1d1b;
+}
+
+/* Change the border of the footer */
+.ui-footer{
+    border: none;
+}
+
+/* position the close icon button */
+#kural-popup .ui-header .ui-icon-delete{
+    margin: 0.4em 0 0 0;
+}
+
+/* style for kural refresh element */
+.refresh {
+    display: inline-block;
+    float: right; 
+    margin: -0.2em 0 0 0; 
+    padding: 0; 
+    border: thin solid #dddddd;
+    border-radius: 1em;
+    box-shadow: none;
+}
+
+    .refresh:active, .ui-icon-delete:active {
+        box-shadow: 0 0 0.65em #6f1d1b;
+    }
+    
+    .refresh:focus, .ui-icon-delete:focus {
+        outline: none;
+        box-shadow: none;
+    }
+    
+    
+    
+/* margin for adhikaram refresh */
+#adhikaram_refresh{
+    margin: 1em 0.2em;
+}
+
+/* adjust the font size for the adhikaram panel */
+#adhikaram .ui-btn{
+    font-size: 0.8em;
+}
+
+/* reduce the margin for search box */
+#kural_thedal_holder {
+    margin: 0.3em;
+}
+
+/* adjust font size for the search box */
+#kural_thedal {
+    font-size: 85%;
+}
+
+/* remove the rounded corners from the adhikaram search box */
+.adhikaram_section div.ui-input-search {
+    border-radius: 0;
+}
+
+/* kural suggestion font size */
+.kural.suggestion {
+    font-size: 80%;
+    padding: 0.4em 0;
+}
+
+/* add borders to kural suggestion */
+.kural.suggestion {
+    border: thin solid #f6f6f6;
+    border-radius: 0;
+}
+
+    .kural.suggestion .ui-state-focus {
+        background: #f6f6f6;
+        border-radius: 0;
+    }
+
+/* styles for autocomplete suggestion window */
+.ui-autocomplete {
+    border: thin solid #cccccc;
+    border-radius: 0;
+}
+
+/* ------------------------------------------------------------------------------------ */
+/* Media Query Elements - Add it as last to prevent style override */
+/* ------------------------------------------------------------------------------------ */
+/*
+ * Font resizing for different resolutions using Media queries
+ *
+ * dimensions from 
+ */
+
+/* width [0 - 320] */
+ 
+@media (max-width: 320px) {
+
+    .kural{
+        font-size: 0.57em;
+    }
+    
+    .kural.suggestion{
+        font-size: 70%;
+    }
+    
+    .adhikaram_title_header {
+        font-size: 65%;
+    }
+    
+    .viruppam .kural-header{
+        font-size: 75%;
+    }
+    
+    
+    /* reduce the font size and positioning of adhikaram name in kural popup */
+    #kural_adhikaram_name {
+        font-size: 0.65em;
+    }
+    
+    #kural_popup_title *{
+        margin-left: 0.1em;
+        margin-right: 0.1em;
+    }
+    
+    #kural_number{
+        font-size: 0.55em;
+    }
+    
+    #kural_popup_title .star {
+        margin: 0 0.2em;
+    }
+
+}
+
+/* width [321 - 480] */
+
+@media (min-width: 321px) and (max-width: 480px) {
+    .kural{
+        font-size: 0.7em;
+    }
+    
+    /* reduce the font size and positioning of adhikaram name in kural popup */
+    #kural_adhikaram_name {
+        font-size: 0.65em;
+    }
+    
+    .adhikaram_title_header {
+        font-size: 75%;
+    }
+    
+    .viruppam .kural-header{
+        font-size: 85%;
+    }
+    
+    #kural_popup_title *{
+        margin-left: 0.1em;
+        margin-right: 0.1em;
+    }
+    
+    #kural_number{
+        font-size: 0.55em;
+    }
+    
+    #kural_popup_title .star {
+        margin: 0 0.2em;
+    }
+    
+}
+
+/* ---------------------------------------------------------------------------- */
+
+/*
+ * Aim: Prevent dismissing the jquery panels in larger displays, so that both the 
+ * panel and the content can co-exist and accessed:
+ *
+ * ref: http://demos.jquerymobile.com/1.4.2/panel/
+ */
+
+@media ( min-width: 35em ) {
+
+	/* wrap on wide viewports once open */
+
+	.ui-panel-page-content-open.ui-panel-page-content-position-left {
+		margin-right: 17em;
+	}
+	.ui-panel-page-content-open.ui-panel-page-content-position-right {
+		margin-left: 17em;
+	}
+	.ui-panel-page-content-open {
+		width: auto;
+	}
+
+	/* disable "dismiss" on wide viewports */
+	.ui-panel-dismiss {
+		display: none;
+	}
+
+	/* same as the above but for panels with display mode "push" only */
+
+	.ui-panel-page-content-open.ui-panel-page-content-position-left.ui-panel-page-content-display-push {
+		margin-right: 17em;
+	}
+	.ui-panel-page-content-open.ui-panel-page-content-position-right.ui-panel-page-content-display-push {
+		margin-left: 17em;
+	}
+	.ui-panel-page-content-open.ui-panel-page-content-display-push {
+		width: auto;
+	}
+
+	.ui-panel-dismiss-display-push {
+		display: none;
+	}
+}
+
+/* ------------------------------------------------------------------------------------ */
+/* END: Media Query Elements - Add it as last to prevent style override */
+/* --------------------------------------------------------------------- */
+
+
+
+
+
+
+
