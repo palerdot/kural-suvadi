@@ -317,6 +317,25 @@ hr{
 	height: 23px;
 }
 
+/* START: adhikaram panel styles */
+
+.adhikaram_section > .ui-collapsible-content {
+    padding: 0.5em;
+    font-size: 0.85em;
+}
+
+.adhikaram_section .ui-input-search input {
+    font-size: 0.75em;
+    padding-left: 2em;
+}
+
+.adhikaram_section .ui-input-search .ui-btn.ui-input-clear, .ui-input-text.ui-input-has-clear .ui-btn.ui-input-clear {
+    /* adjust the close button in the adhikaram section search box */
+    top: 70%;
+}
+
+/* END: adhikaram panel styles */
+
 /* START: adhikaram styles */
 
 .adhikaram-row :hover{
@@ -481,6 +500,8 @@ hr{
 .ui-autocomplete {
     border: thin solid #cccccc;
     border-radius: 0;
+    /* make this high enough so that external udhavi panel does not hide the results */
+    z-index: 10001 !important;
 }
 
 /* ------------------------------------------------------------------------------------ */
@@ -494,14 +515,14 @@ hr{
 
 /* width [0 - 320] */
  
-@media (max-width: 320px) {
+@media (max-width: 319px) {
 
     .kural{
-        font-size: 0.57em;
+        font-size: 0.4em;
     }
     
     .kural.suggestion{
-        font-size: 70%;
+        font-size: 50%;
     }
     
     .adhikaram_title_header {
@@ -535,9 +556,13 @@ hr{
 
 /* width [321 - 480] */
 
-@media (min-width: 321px) and (max-width: 480px) {
+@media (min-width: 320px) and (max-width: 480px) {
     .kural{
-        font-size: 0.7em;
+        font-size: 0.55em;
+    }
+    
+    .kural.suggestion{
+        font-size: 60%;
     }
     
     /* reduce the font size and positioning of adhikaram name in kural popup */

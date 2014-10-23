@@ -566,7 +566,8 @@ TODO: Clean up the entire javascript by
             this.$jf['u_btn'] = $( ".udhavi-btn" );
             
             // enhance the external udhavi panel
-            this.$jf['u_panel'].panel().enhanceWithin();
+            this.$jf['u_panel'].panel({ defaults: true });
+            //this.$jf['u_panel'].panel().enhanceWithin();
             
             var self = this;
             
