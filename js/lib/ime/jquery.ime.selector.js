@@ -60,7 +60,7 @@
 			var imeselector = this;
 
 			this.stopTimer();
-
+            
 			this.timer = setTimeout(
 				function () {
 					imeselector.$imeSetting.animate( {
@@ -69,11 +69,13 @@
 					}, 500, function () {
 						imeselector.$imeSetting.hide();
 						// Restore properties for the next time it becomes visible:
-						imeselector.$imeSetting.css( 'opacity', 1 );
-						imeselector.$imeSetting.css( 'margin-top', 0 );
+						// [Edit by Arun:] doing this quick hack to hide the help option;
+						// 
+						//imeselector.$imeSetting.css( 'opacity', 1 );
+						//imeselector.$imeSetting.css( 'margin-top', 0 );
 					} );
 				}, this.options.timeout
-			);
+			); 
 		},
 
 		focus: function () {

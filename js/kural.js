@@ -518,6 +518,20 @@ TODO: Clean up the entire javascript by
             
             this.$jf['k_thedal'].autocomplete({
 	            
+	            search: function( event, ui ){
+	            
+	                // prevent the search if empty spaces are entered in the input box
+	                if( $.trim($(this).val()) ==  '' ){
+	                    event.preventDefault();
+	                    return;
+	                }
+	            
+	            },
+	            
+	            delay: 500, //delay half second after typing before showing results
+	            
+	            minLength: 2,
+	            
 	            source: Suvadi.data.kural,
 	            
 	            select: function( event, ui ){
@@ -544,8 +558,9 @@ TODO: Clean up the entire javascript by
                  *
                  * split using spaces; first four words in one line
                  * and next three in the next
-                 */
-                 
+                 */ 
+               
+                
                 var kural_split = item.label.split(" ");
                 var first_line = kural_split[0]+" "+kural_split[1]+" "+kural_split[2]+" "+kural_split[3];
                 var second_line = kural_split[4]+" "+kural_split[5]+" "+kural_split[6];
@@ -554,6 +569,7 @@ TODO: Clean up the entire javascript by
                     .attr( "item.autocomplete", item )
                     .append( $("<a>").html( first_line + "<br>" + second_line) )
                     .appendTo( ul );
+                
             };
             
             // ------------------------------------------------------------
@@ -694,8 +710,8 @@ TODO: Clean up the entire javascript by
         // refreshes 'Kural'
         kural_refresh: function(){
         
-            // get a random number for kural in the range of '1' - '20' [for now]
-            var kmax = 21, kmin = 1;
+            // get a random number for kural in the range of '1' - '1330'
+            var kmax = 1331, kmin = 1;
             var k_random = Math.floor( Math.random() * ( kmax - kmin ) ) + kmin;
             
             this.show_kural( k_random );
@@ -706,8 +722,8 @@ TODO: Clean up the entire javascript by
         
         adhikaram_refresh: function(){
         
-            // get a random number for adhikaram in the range of '1' - '2' [for now]
-            var amax = 3, amin = 1;
+            // get a random number for adhikaram in the range of '1' - '133' 
+            var amax = 134, amin = 1;
             var a_random = Math.floor( Math.random() * ( amax - amin ) ) + amin;
             
             this.show_adhikaram( a_random );
@@ -828,7 +844,7 @@ TODO: Clean up the entire javascript by
             // adhikaram header element
             var $a_header = $("<div>", {'class': 'adhikaram_title_header'})
                             .append( 
-                                $("<span>", { 'class': 'adhikaram_title' }).html( this.title ) 
+                                $("<span>", { 'class': 'adhikaram_title' }).html( this.yen + ". " + this.title ) 
                              )
                              .append( $a_refresh );
             

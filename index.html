@@ -42,7 +42,9 @@
         <div data-role="page" id="kural-karka" data-position="fixed">
 	        
 	        <div data-role="header" data-position="fixed" data-tap-toggle="false">
-		        <h1>குறள் சுவடி</h1>
+		        <h1 class="kural-icon-header">
+	                <div class="kural-icon"></div>
+	            </h1>    
 		        <a href="#adhikaram" data-icon="bullets" data-theme="a" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-bullets ui-btn-a ui-shadow ui-btn-left">குறள்</a>
                 <a href="#udhavi-panel" data-icon="search" data-theme="a" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-gear ui-btn-a ui-shadow ui-btn-right">உதவி</a>
 	        </div><!-- /header -->
@@ -374,7 +376,9 @@
         <div data-role="page" id="viruppam" data-position="fixed">
 
             <div data-role="header" data-position="fixed" data-tap-toggle="false">
-		        <h1>குறள் சுவடி</h1>
+		        <h1 class="kural-icon-header">
+	                <div class="kural-icon"></div>
+	            </h1>
 		        <a href="#udhavi-panel" data-icon="search" data-theme="a" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-gear ui-btn-a ui-shadow ui-btn-right">உதவி</a>
 	        </div><!-- /header -->
 
@@ -407,7 +411,9 @@
 	    <div data-role="page" id="suvadi_viruppam" data-position="fixed">
 
             <div data-role="header" data-position="fixed" data-tap-toggle="false">
-		        <h1>குறள் சுவடி</h1>
+		        <h1 class="kural-icon-header">
+	                <div class="kural-icon"></div>
+	            </h1>
 		        <a href="#udhavi-panel" data-icon="search" data-theme="a" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-gear ui-btn-a ui-shadow ui-btn-right">உதவி</a>
 	        </div><!-- /header -->
 
@@ -452,7 +458,9 @@
         <div data-role="page" id="ulleedu_udhavi" data-position="fixed">
 
             <div data-role="header" data-position="fixed" data-tap-toggle="false">
-		        <h1>குறள் சுவடி</h1>
+		        <h1 class="kural-icon-header">
+	                <div class="kural-icon"></div>
+	            </h1>
 		        <a href="#udhavi-panel" data-icon="search" data-theme="a" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-gear ui-btn-a ui-shadow ui-btn-right">உதவி</a>
 	        </div><!-- /header -->
 
@@ -3721,7 +3729,16 @@
         <!-- ************************************************************** -->
         <!-- END: Moving all the JS files to body -->
         <!-- ************************************************************** -->
-        
+        <script type="text/javascript" src="phonegap.js"></script>
+        <script>
+            // hide the splash screen manually
+            document.addEventListener( "deviceready", onDeviceReady, false );
+            
+            function onDeviceReady() {
+                navigator.splashscreen.hide();
+            }
+            
+        </script>
         <!-- ------------------------------------------------------------------------------------ -->
 		
 </body>

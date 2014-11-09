@@ -290,6 +290,18 @@ hr{
     cursor: pointer;
 }
 
+/* kural icon in header */
+.kural-icon-header.ui-title {
+    font-size: 0.2em;
+}
+
+.kural-icon {
+    background: url('images/kural_sprite.png') no-repeat -78px -8px;
+    display: inline-block;
+	width: 36px;
+	height: 36px;
+}
+
 /* ----------------------------------------------------------- */
 /* END: utility classes */
 /* ----------------------------------------------------------- */
@@ -303,16 +315,16 @@ hr{
 .star{
     display: inline-block;
     float: right;
-    background: url('images/star-small-gold1.png') no-repeat -10px -13px;
+    background: url('images/kural_sprite.png') no-repeat -14px -14px;
 	width: 24px;
-	height: 23px;
+	height: 22px;
 	vertical-align: middle;
 }
 
 .starred{
     display: inline-block;
     float: right;
-    background: url('images/star-small-gold1.png') no-repeat -43px -14px;
+    background: url('images/kural_sprite.png') no-repeat -47px -14px;
 	width: 23px;
 	height: 23px;
 }
@@ -504,6 +516,12 @@ hr{
     z-index: 10001 !important;
 }
 
+.ui-autocomplete-loading { 
+    background: #f7f7f7 url(/css/images/loader.gif) no-repeat 100%;
+    opacity: 0.5; 
+}
+
+
 /* ------------------------------------------------------------------------------------ */
 /* Media Query Elements - Add it as last to prevent style override */
 /* ------------------------------------------------------------------------------------ */
@@ -526,7 +544,7 @@ hr{
     }
     
     .adhikaram_title_header {
-        font-size: 65%;
+        font-size: 58%;
     }
     
     .viruppam .kural-header{
