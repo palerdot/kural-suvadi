@@ -45,7 +45,7 @@
 .kural{
     color: #444444;
     font-weight: normal;
-    line-height: 1.85em;
+    line-height: 2.2em;
     margin: 0.75em 0;
 }
 
@@ -544,8 +544,17 @@ hr{
     }
     
     .adhikaram_title_header {
-        font-size: 58%;
+        font-size: 65%;
     }
+    
+        .adhikaram_title {
+            font-size: 0.85em;
+        }
+    
+        #adhikaram_refresh {
+            font-size: 1.5em;
+            margin: 0.3em 0.1em;
+        }
     
     .viruppam .kural-header{
         font-size: 75%;
@@ -591,6 +600,15 @@ hr{
     .adhikaram_title_header {
         font-size: 75%;
     }
+    
+        .adhikaram_title {
+            font-size: 0.85em;
+        }
+    
+        #adhikaram_refresh {
+            font-size: 1.2em;
+            margin: 0.4em 0.1em;
+        }
     
     .viruppam .kural-header{
         font-size: 85%;
