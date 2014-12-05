@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<project basedir="." default="compile">
+
+  <taskdef name="jscomp" classname="com.google.javascript.jscomp.ant.CompileTask"
+           classpath="tools/build/closure-compiler.jar"/>
+
+  <target name="compile">
+
+    <!-- START: jQuery Libraries -->
+    <jscomp compilationLevel="simple" warning="quiet" 
+        debug="false" output="js/min/jquery.kural.lib.min.js">
+
+      <sources dir="${basedir}/js/lib/jquery">
+        <file name="jquery.js"/>
+        <file name="jquery-ui.min.js"/>
+        <file name="jquery.mobile.init.js"/>
+        <file name="jquery.mobile-1.4.2.min.js"/>
+      </sources>
+
+    </jscomp>
+    <!-- END: jQuery Libraries -->
+
+    <!-- START: jQuery ime related files -->
+    <jscomp compilationLevel="simple" warning="quiet" 
+        debug="false" output="js/min/ime.min.js">
+
+      <sources dir="${basedir}/js/lib/ime">
+        <file name="rangy-core.js"/>
+        <file name="jquery.ime.js"/>
+        <file name="jquery.ime.selector.js"/>
+        <file name="jquery.ime.preferences.js"/>
+        <file name="jquery.ime.inputmethods.js"/>
+        <file name="ta-transliteration.js"/>
+      </sources>
+
+    </jscomp>
+    <!-- END: jQuery ime related files -->
+    
+    <!-- START: kural related files -->
+    <jscomp compilationLevel="simple" warning="quiet" 
+        debug="false" output="js/min/kural.min.js">
+
+      <sources dir="${basedir}/js/kural">
+        <file name="kural.js"/>
+      </sources>
+
+    </jscomp>
+    <!-- END: kural related files -->
+    
+    <!-- START: Suvadi Sources files -->
+    <jscomp compilationLevel="simple" warning="quiet" 
+        debug="false" output="js/min/sources.min.js">
+
+      <sources dir="${basedir}/js/kural">
+        <file name="kural.source.js"/>
+        <file name="adhikaram.source.js"/>
+        <file name="porul.source.js"/>
+      </sources>
+
+    </jscomp>
+    <!-- END: Suvadi Sources files -->
+
+  </target>
+
+</project>

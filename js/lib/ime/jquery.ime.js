@@ -1,6 +1,6 @@
-( function ( $ ) {
+( function ( $, window ) {
 	'use strict';
-
+	
 	// rangy is defined in the rangy library
 	/*global rangy */
 
@@ -31,9 +31,52 @@
 		 * Listen for events and bind to handlers
 		 */
 		listen: function () {
-			this.$element.on( 'keypress.ime', $.proxy( this.keypress, this ) );
-			this.$element.on( 'keyup.ime', $.proxy( this.keyup, this ) );
-			this.$element.on( 'keydown.ime', $.proxy( this.keydown, this ) );
+			
+			// starting from android "4.4" kitkat webview has buggy keypress support
+			if ( window.device && window.device.platform == "Android" && versionCompare( window.device.version, "4.4" ) >= 0 ) {
+			
+			    // android version is greater than or equal to 4.4
+			    var self = this;
+			    
+			    this.$element.on( 'keyup', function( e ){
+			    
+                    var str = $(this).val(); 
+                    var c = str.slice( -1 ); // get the last pressed key
+                    var code = c.charCodeAt(0);
+                    
+                    // ignore everything except character keys
+                    if ( !( code >= 65 && code <= 122 ) ) {
+                        return;
+                    }
+                    
+                    // restore the original string present before this key is pressed 
+                    var prev = str.slice( 0, str.length - 1 );
+                    
+                    // fix for buggy android 4.4 webview keyboard
+                    // Bug: if typed a => it includes aa
+                    // original string should not contain "English" chars
+                    var orig = prev.replace(/[aeiou]/g, '');
+                    
+                    $(this).val( orig );
+                    
+                    // get the character code of the pressed key
+                    var press = $.Event("keypress");
+                    press.ctrlKey = false;
+                    press.which = code;
+                    
+                    // simulate keypress
+                    self.keypress( press );
+
+                    e.preventDefault();
+			    
+			    } );
+			
+			} else {
+			    this.$element.on( 'keypress.ime', $.proxy( this.keypress, this ) );
+			    this.$element.on( 'keyup.ime', $.proxy( this.keyup, this ) );
+			    this.$element.on( 'keydown.ime', $.proxy( this.keydown, this ) );
+			}
+			
 			this.$element.on( 'destroy.ime', $.proxy( this.destroy, this ) );
 			this.$element.on( 'enable.ime', $.proxy( this.enable, this ) );
 			this.$element.on( 'disable.ime', $.proxy( this.disable, this ) );
@@ -200,7 +243,7 @@
 			input = input.substring( divergingPos );
 			replacement.output = replacement.output.substring( divergingPos );
 			replaceText( this.$element, replacement.output, startPos - input.length + 1, endPos );
-
+			
 			e.stopPropagation();
 
 			return false;
@@ -758,4 +801,4 @@
 			return index;
 		} );
 	}
-}( jQuery ) );
+}( jQuery, window ) );

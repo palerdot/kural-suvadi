@@ -34,6 +34,12 @@
         margin: 0 1em;
     }
     
+    /* make the width of viruppam kural header better in small displays  */
+    .kural-header h3 {
+        min-width: 50%;
+        width: auto;
+    }
+    
 /* make the kural header in adhikaram view to align left */
 
 #adhikaram-view .kural-header{
@@ -143,7 +149,8 @@ html, body{
 
 /* style the 'kural' popup header and footer elements */
 #kural_porul {
-    font-size: 0.7em;
+    font-size: 1em;
+    line-height: 1.5em;
 }
 
 .kural_popup_nav{
@@ -250,6 +257,30 @@ html, body{
 /* START: utility classes */
 /* ----------------------------------------------------------- */
 
+/* loading class */
+.kural-loading {
+    position: absolute;
+    display: inline-block;
+    top: 44%;
+    left: 48%;
+    border-radius: 3em;
+    border: thin solid #6f1d1b;
+    width: 3em;
+    height: 3em;
+    z-index: 10001;
+    background: url("images/kural_suvadi.gif") repeat scroll 0 0 / 3em 3em rgba(0, 0, 0, 0);
+}
+
+/* patri page help icons */
+.patri-icon {
+    width: 5em;
+    height: auto;
+}
+
+    .patri-icon.long {
+        width: 7.7em;
+    }
+
 .text-center{
     text-align: center;
 }
@@ -265,8 +296,8 @@ html, body{
     border-radius: 0.4em;
     margin: 0.75em 0.2em;
     padding: 0.5em;
-    font-size: 0.75em;
-    line-height: 1.5;
+    font-size: 0.85em;
+    line-height: 1.75;
 }
 
 /* define the legible horizontal line */
@@ -288,6 +319,7 @@ hr{
     border: thin solid #dddddd;
     padding: 0.5em;
     cursor: pointer;
+    line-height: 1.75em;
 }
 
 /* kural icon in header */
@@ -320,6 +352,11 @@ hr{
 	height: 22px;
 	vertical-align: middle;
 }
+
+    .star.patri {
+        float: none;
+        margin: 0 0.3em;
+    }
 
 .starred{
     display: inline-block;
@@ -364,6 +401,10 @@ hr{
         box-shadow: 0 0 0.65em #333333;
     }
 
+    .adhikaram-row .ui-body {
+        padding: 0.4em 0.5em;
+    }
+
 /* adhikaram title style */
 
 .adhikaram_title_header{
@@ -374,10 +415,11 @@ hr{
     display: inline-block;
     border-radius: 0.33em;
     margin: 0.7em;
-    color: #6f1d1b;
+    
+    position: relative;
+    left: 1em;
+    
     color: white;
-    background: #FFCC00;
-    background: #f6f6f6;
     background: #6f1d1b;
     
     border: thin solid #6f1d1b;
@@ -444,6 +486,11 @@ hr{
     margin: 0.4em 0 0 0;
 }
 
+/* adjust padding on kural popup */
+#kural-popup .ui-content {
+    padding: 0.5em;
+}
+
 /* style for kural refresh element */
 .refresh {
     display: inline-block;
@@ -464,6 +511,12 @@ hr{
         box-shadow: none;
     }
     
+    /* refresh icon in patri page */
+    .refresh.patri {
+        float: none;
+        margin-top: 0.5em;
+        vertical-align: bottom;
+    }
     
     
 /* margin for adhikaram refresh */
@@ -521,6 +574,11 @@ hr{
     opacity: 0.5; 
 }
 
+/* [css fix] black background bug when external panel is opened */
+.ui-panel-page-container-themed .ui-page-active {
+    background: white;
+}
+
 
 /* ------------------------------------------------------------------------------------ */
 /* Media Query Elements - Add it as last to prevent style override */
@@ -536,19 +594,20 @@ hr{
 @media (max-width: 319px) {
 
     .kural{
-        font-size: 0.4em;
+        font-size: 0.44em;
     }
     
     .kural.suggestion{
-        font-size: 50%;
+        font-size: 0.7em;
     }
     
     .adhikaram_title_header {
-        font-size: 65%;
+        font-size: 0.8em;
     }
     
         .adhikaram_title {
             font-size: 0.85em;
+            left: -1em;
         }
     
         #adhikaram_refresh {
@@ -557,7 +616,7 @@ hr{
         }
     
     .viruppam .kural-header{
-        font-size: 75%;
+        font-size: 0.8em;
     }
     
     
@@ -583,13 +642,13 @@ hr{
 
 /* width [321 - 480] */
 
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 320px) and (max-width: 359px) {
     .kural{
         font-size: 0.55em;
     }
     
     .kural.suggestion{
-        font-size: 60%;
+        font-size: 0.75em;
     }
     
     /* reduce the font size and positioning of adhikaram name in kural popup */
@@ -598,11 +657,12 @@ hr{
     }
     
     .adhikaram_title_header {
-        font-size: 75%;
+        font-size: 0.9em;
     }
     
         .adhikaram_title {
             font-size: 0.85em;
+            left: 0;
         }
     
         #adhikaram_refresh {
@@ -611,7 +671,7 @@ hr{
         }
     
     .viruppam .kural-header{
-        font-size: 85%;
+        font-size: 0.9em;
     }
     
     #kural_popup_title *{
@@ -627,6 +687,125 @@ hr{
         margin: 0 0.2em;
     }
     
+}
+
+/* width [359 - 480] */
+
+@media (min-width: 360px) and (max-width: 460px) {
+    .kural{
+        font-size: 0.75em;
+    }
+    
+    .kural.suggestion{
+        font-size: 0.8em;
+    }
+    
+    /* reduce the font size and positioning of adhikaram name in kural popup */
+    #kural_adhikaram_name {
+        font-size: 0.65em;
+    }
+    
+    .adhikaram_title_header {
+        font-size: 1em;
+    }
+    
+        .adhikaram_title {
+            font-size: 1em;
+        }
+    
+        #adhikaram_refresh {
+            font-size: 1.2em;
+            margin: 0.4em 0.1em;
+        }
+    
+    .viruppam .kural-header{
+        font-size: 1em;
+    }
+    
+    #kural_popup_title *{
+        margin-left: 0.1em;
+        margin-right: 0.1em;
+    }
+    
+    #kural_number{
+        font-size: 0.55em;
+    }
+    
+    #kural_popup_title .star {
+        margin: 0 0.2em;
+    }
+    
+}
+
+@media (min-width: 461px) and (max-width: 760px) {
+
+    .kural{
+        font-size: 1.1em;
+    }
+    
+    .kural.suggestion{
+        font-size: 0.9em;
+    }
+    
+    /* reduce the font size and positioning of adhikaram name in kural popup */
+    #kural_adhikaram_name {
+        font-size: 0.65em;
+    }
+    
+    .adhikaram_title_header {
+        font-size: 1.1em;
+    }
+    
+        .adhikaram_title {
+            font-size: 1em;
+        }
+    
+        #adhikaram_refresh {
+            font-size: 1.2em;
+            margin: 0.4em 0.1em;
+        }
+    
+    .viruppam .kural-header{
+        font-size: 1.1em;
+    }
+    
+    #kural_popup_title *{
+        margin-left: 0.1em;
+        margin-right: 0.1em;
+    }
+    
+    #kural_number{
+        font-size: 0.55em;
+    }
+    
+    #kural_popup_title .star {
+        margin: 0 0.2em;
+    }
+
+}
+
+@media (min-width: 761px) and (max-width: 1060px) {
+
+    .kural {
+        font-size: 1.2em;
+    }
+
+}
+
+@media (min-width: 1061px) and (max-width: 1360px) {
+
+    .kural {
+        font-size: 1.5em;
+    }
+
+}
+
+@media (min-width: 1361px) {
+
+    .kural {
+        font-size: 1.75em;
+    }
+
 }
 
 /* ---------------------------------------------------------------------------- */
